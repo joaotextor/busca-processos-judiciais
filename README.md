@@ -60,10 +60,10 @@ const BuscaProcesso = require("busca-processos-judiciais");
 ```js
 async function buscarProcesso() {
   const busca = new BuscaProcesso(
-    "TJRS",
+    "TRF4",
     "APIKey cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw==",
   );
-  return busca.getCleanResult("51234927620238210001");
+  return busca.getCleanResult("50342112220234040000");
 }
 
 buscarProcesso()
