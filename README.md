@@ -110,7 +110,7 @@ Os tipos **`Movimentos`** e **`Assuntos`** são assim compostos:
 
 ```js
 type Movimentos = {
-nome: string;
+  nome: string;
   dataHora: Date;
   complemento: string | null;
 };
@@ -125,9 +125,9 @@ type Assuntos = {
 
 ### 📐 Objetos de suporte
 
-Além da class principal, esta biblioteca também exporta dois objetos de suporte: `tribunais` e `siglasTribunais`.
+Além da classe principal, esta biblioteca também exporta dois objetos de suporte: `tribunais` e `siglasTribunais`.
 
-O primeiro traz o nome completo de todos os Tribunais. Exemplo:
+O primeiro traz o nome completo de todos os Tribunais na estrutura `{ sigla: "nome completo" }`. Exemplo:
 
 ```js
 export const tribunais = {
@@ -168,7 +168,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 
 </div>
 
