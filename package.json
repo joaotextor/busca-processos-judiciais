@@ -1,6 +1,6 @@
 {
   "name": "busca-processos-judiciais",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Biblioteca que utiliza a API Pública do CNJ para abstrair a busca de dados de processos judiciais de todas as justiças do país.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
