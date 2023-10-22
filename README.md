@@ -21,17 +21,17 @@ Possui como base de dados a [API Pública do CNJ](https://datajud-wiki.cnj.jus.b
 
 ## 👨‍💻 Contribua 👩‍💻
 
-Pull Requests são extremamente bem-vindos, seja para corrigir bugs, melhorar o código ou criar novas funcionalidades.
+Pull Requests são extremamente bem-vindos, seja para corrigir bugs, implementar testes, melhorar o código ou criar novas funcionalidades.
 
-Por enquanto, essa biblioteca permite apenas a busca por número de processo (função que será a mais utilizada pelos projetos feitos com essa API), mas as buscas podem utilizar inúmeros critérios, como exemplificado [aqui](https://datajud-wiki.cnj.jus.br/api-publica/exemplos/exemplo2).
+Por enquanto, essa biblioteca permite apenas a busca por número de processo (função que, presumo, será a mais utilizada pelos projetos feitos com essa API), mas as buscas podem utilizar inúmeros critérios, como exemplificado [aqui](https://datajud-wiki.cnj.jus.br/api-publica/exemplos/exemplo2).
 
 Sendo assim, fique à vontade para contribuir com o projeto.
 
 Para isso, dê um [fork](https://github.com/joaotextor/busca-processos-judiciais/fork) no repositório e depois clone para sua máquina:
 
-`git clone https://github.com/joaotextor/busca-processos-judiciais.git`
+`git clone <seu-fork-do-repositório>`
 
-Não se esqueça de usar a branch `develop`
+Faça checkout para a branch `develop` antes de iniciar as alterações.
 
 ## 🔌 Instalação
 
