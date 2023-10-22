@@ -1,10 +1,12 @@
 <div align="center">
 
-[Início](#busca-de-processos-judiciais) ⦁ 
-[Contribua](#-contribua-) ⦁ 
-[Instalação](#-instalação) ⦁ 
-[Comece a Usar](#-uso) ⦁ 
-[Reporte um Bug](#-bugs) ⦁ 
+<img src="https://joaotextor.com/busca-processos-judiciais/logo.png" alt="logo" height="300px"/>
+
+[Início](#busca-de-processos-judiciais) ⦁
+[Contribua](#-contribua-) ⦁
+[Instalação](#-instalação) ⦁
+[Comece a Usar](#-uso) ⦁
+[Reporte um Bug](#-bugs) ⦁
 [Licença](#-licença)
 
 </div>
@@ -29,9 +31,9 @@ Para isso, dê um [fork](https://github.com/joaotextor/busca-processos-judiciais
 
 `git clone https://github.com/joaotextor/busca-processos-judiciais.git`
 
-Não se esqueça de usar a branch..
+Não se esqueça de usar a branch `develop`
 
-## ⏬ Instalação
+## 🔌 Instalação
 
 Para instalar localmente em seu projeto, utilize:
 
@@ -39,9 +41,9 @@ Para instalar localmente em seu projeto, utilize:
 npm i --save busca-processos-judiciais
 ```
 
-## 🚀 Uso
+## 📤 Uso
 
-### Importação
+### 📂 Importação
 
 ```js
 import { BuscaProcesso } from "busca-processos-judiciais";
@@ -53,7 +55,7 @@ ou
 const BuscaProcesso = require("busca-processos-judiciais");
 ```
 
-### Implementação
+### 🚀️ Implementação
 
 ```js
 async function buscarProcesso() {
@@ -69,12 +71,12 @@ buscarProcesso()
   .catch((erro) => console.log(erro));
 ```
 
-### Chave Pública da API
+### 🔑 Chave Pública da API
 
 A API do CNJ é pública e pode ser obtida [aqui](https://datajud-wiki.cnj.jus.br/api-publica/acesso).
 O uso da API está sujeita aos **[Termos de Uso](https://formularios.cnj.jus.br/wp-content/uploads/2023/05/Termos-de-uso-api-publica-V1.1.pdf)** definidos pelo CNJ.
 
-### 🧰 Métodos
+### 🔧 Métodos
 
 **`constructor(tribunal, apiKey)`**: tanto a sigla do Tribunal quanto a chave pública da API são propriedades obrigatórias no construtor da classe.
 
@@ -121,7 +123,7 @@ type Assuntos = {
 };
 ```
 
-### Objetos de suporte
+### 📐 Objetos de suporte
 
 Além da class principal, esta biblioteca também exporta dois objetos de suporte: `tribunais` e `siglasTribunais`.
 
@@ -153,26 +155,22 @@ Se desejar corrigir, abra o issue e depois siga os passos para a [colaboração]
 
 ## 📑 Licença
 
-[Licença MIT](https://choosealicense.com/licenses/mit/)
+[Licença MIT](https://choosealicense.com/licenses/mit/) :
 
+<div align="justify">
+
+```a
 MIT License
 
 Copyright (c) 2023, Busca Processos Judiciais (joaotextor/busca-processos-judiciais)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+
+</div>
+
