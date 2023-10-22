@@ -1,5 +1,6 @@
 import { Tribunais } from "./utils/types/tribunais-type";
 import { endpoints } from "./utils/endpoints";
+import { siglasTribunais, tribunais } from "./utils/tribunais";
 import Processo, { Assuntos, Movimentos } from "./utils/classes/Processo";
 
 export default class BuscaProcessos {
@@ -95,3 +96,5 @@ export default class BuscaProcessos {
     );
   }
 }
+
+export { siglasTribunais, tribunais };
