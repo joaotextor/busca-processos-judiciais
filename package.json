@@ -1,6 +1,6 @@
 {
   "name": "busca-processos-judiciais",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Biblioteca que utiliza a API Pública do CNJ para abstrair a busca de dados de processos judiciais de todas as justiças do país.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -12,7 +12,8 @@
     "dev": "tsc --watch",
     "build": "tsup index.ts --format cjs,esm --dts && npx fix-tsup-cjs",
     "lint": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "build-docs": "typedoc --plugin typedoc-plugin-rename-defaults index.ts"
   },
   "author": "João Textor",
   "license": "MIT",
@@ -34,6 +35,8 @@
     "prettier": "^3.0.3",
     "ts-jest": "^29.1.1",
     "tsup": "^7.2.0",
+    "typedoc": "^0.25.2",
+    "typedoc-plugin-rename-defaults": "^0.6.7",
     "typescript": "^5.2.2"
   }
 }

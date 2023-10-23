@@ -6,6 +6,7 @@
 [Contribua](#-contribua-) ⦁
 [Instalação](#-instalação) ⦁
 [Comece a Usar](#-uso) ⦁
+[Documentação](#-documentação) ⦁
 [Reporte um Bug](#-bugs) ⦁
 [Licença](#-licença)
 
@@ -152,6 +153,10 @@ const busca = new BuscarProcesso(siglasTribunais.TJRS, "api-key")
 ```
 
 Isso reduz as chances de erro de digitação, visto que permite o uso do autocomplete de seu editor de código/IDE.
+
+## 👀 Documentação
+
+A documentaçào completa pode ser encontrada [AQUI](https://busca-processos-judiciais.joaotextor.com).
 
 ## 🪲 Bugs
 

@@ -6,25 +6,31 @@ import Processo, { Assuntos, Movimentos } from "./utils/classes/Processo";
 export default class BuscaProcessos {
   private tribunal: Tribunais;
   private APIKey: string;
+  /**
+   * @param tribunal - A sigla do tribunal. Também pode ser importada do objeto `siglasTribunais`
+   * @param apiKey - A chave da API Pública do DataJud/CNJ. Pode ser encontrada [aqui](https://datajud-wiki.cnj.jus.br/api-publica/acesso).
+   */
   constructor(tribunal: Tribunais, apiKey: string) {
     this.tribunal = tribunal;
     this.APIKey = apiKey;
   }
 
+  /**
+   * Realiza uma requisição à API com o método POST, retornando um objeto com todas as propriedades.
+   *
+   * @param processo - O número do processo cujos dados serão buscados.
+   * @returns - Um Objeto JSON com todas as propriedades do processo.
+   * @throws - Erro do servidor caso um erro ocorra durante o `fetch`
+   *
+   * @example
+   * ```js
+   * const buscaProcessos = new BuscaProcessos(tribunal, apiKey);
+   * const processo = "1234567890";
+   * const result = await buscaProcessos.getFullObject(processo);
+   * console.log(result);
+   * ```
+   */
   public async getFullObject(processo: string): Promise<any> {
-    /**
-     * Fetches the full object of a process by making a POST request to an API endpoint.
-     *
-     * @param processo - The process number for which the full object is to be fetched.
-     * @returns The full object of the process as a JSON object.
-     * @throws If an error occurs during the fetch request.
-     *
-     * @example
-     * const buscaProcessos = new BuscaProcessos(tribunal, apiKey);
-     * const processo = "1234567890";
-     * const result = await buscaProcessos.getFullObject(processo);
-     * console.log(result);
-     */
     try {
       const rawResult = await fetch(endpoints[this.tribunal], {
         method: "POST",
@@ -47,13 +53,14 @@ export default class BuscaProcessos {
     }
   }
 
+  /**
+   * Retorna um JSON em string com os dados do processo informado, por meio de requisição com o método POST para o endpoint da API.
+   *
+   * @param processo - O número do processo cujos dados serão buscados.
+   * @returns - Uma `Promise` que resolve em um JSON do processo.
+   * @throws - Erro do servidor caso um erro ocorra durante o `fetch`
+   */
   public async getStringified(processo: string): Promise<any> {
-    /**
-     * Retrieves a stringified JSON representation of a process by making a POST request to an API endpoint.
-     *
-     * @param processo - The process number for which to retrieve the stringified JSON representation.
-     * @returns A Promise that resolves to a stringified JSON representation of the process.
-     */
     try {
       const rawResult = await fetch(endpoints[this.tribunal], {
         method: "POST",
@@ -76,13 +83,14 @@ export default class BuscaProcessos {
     }
   }
 
+  /**
+   * Busca os dados mais importantes relacionados a determinado processo
+   *
+   * @param processo - O número do processo cujos dados serão buscados.
+   * @returns - Uma `Promise` que retorna uma instância da classe `Processo` com as informações mais relevantes do processo, extraídas do resultado da requisição.
+   * @throws - Erro do servidor caso um erro ocorra durante o `fetch`
+   */
   public async getCleanResult(processo: string): Promise<any> {
-    /**
-     * Retrieves clean and formatted data from a given process.
-     *
-     * @param processo - The process number for which clean data needs to be retrieved.
-     * @returns An instance of the Processo class with relevant information extracted from the raw result.
-     */
     const result = await this.getFullObject(processo);
     const resultProcesso = result.hits.hits[0]._source;
 
@@ -120,13 +128,14 @@ export default class BuscaProcessos {
       assuntos,
     );
   }
+  /**
+   * Retorna apenas os movimentos de determinado processo.
+   *
+   * @param processo - O número do processo cujos movimentos serão buscados.
+   * @returns - Uma `Array` de movimentos. Cada movimento possui as seguintes propriedades: `nome` (string), `dataHora` (Date), and `complemento` (string or null).
+   * @throws - Erro do servidor caso um erro ocorra durante o `fetch`
+   */
   public async getMovimentos(processo: string): Promise<any> {
-    /**
-     * Retrieves the movements of a given process.
-     *
-     * @param processo - The process number for which to retrieve the movements.
-     * @returns An array of movements, where each movement object has the properties `nome` (string), `dataHora` (Date), and `complemento` (string or null).
-     */
     try {
       const result = await this.getFullObject(processo);
       const resultProcesso = result.hits.hits[0]._source;
@@ -143,17 +152,17 @@ export default class BuscaProcessos {
       console.log(error);
     }
   }
+  /**
+   * Busca uma lista de processos com base no código da Classe Processual e no código do Órgão Julgador.
+   *
+   * @param classCodigo - Código da Classe Processual
+   * @param orgaoJulgadorCodigo - Código do órgão julgador
+   * @returns - Uma `Promise` com a lista de processos judiciais de determinada classe e de determinado órgão julgador.
+   */
   public async getProceduralClassAndJudgingBody(
     classCodigo: number,
     orgaoJulgadorCodigo: number,
   ): Promise<any> {
-    /**
-     * Fetches process information from an API based on the provided class code and judging body code.
-     *
-     * @param {Number} classCodigo - The code of the procedural class.
-     * @param {Number} orgaoJulgadorCodigo - The code of the judging body.
-     * @returns {Promise<any>} - The result of the API request, containing information about the procedural class and judging body.
-     */
     try {
       const rawResult = await fetch(endpoints[this.tribunal], {
         method: "POST",
@@ -179,19 +188,19 @@ export default class BuscaProcessos {
     }
   }
 
+  /**
+   * O mesmo que `getProceduralClassAndJudgingBody`, mas com paginação de dados.
+   *
+   * @param classCodigo - Código da Classe Processual
+   * @param orgaoJulgadorCodigo - Código do órgão julgador
+   * @param sizePagination - O número de resultados por página.
+   * @returns - Uma `Promise` com a lista de processos judiciais de determinada classe e de determinado órgão julgador.
+   */
   public async getProceduralClassAndJudgingBodyWithPagination(
     classCodigo: number,
     orgaoJulgadorCodigo: number,
     sizePagination: number,
   ): Promise<any> {
-    /**
-     * Retrieves process list with pagination from an API endpoint, based on the procedural class code and the judging body code.
-     *
-     * @param {Number} classCodigo - The code of the procedural class.
-     * @param {Number} orgaoJulgadorCodigo - The code of the judging body.
-     * @param {Number} sizePagination - The number of results to be returned per page.
-     * @returns {Promise<any>} - The API response as a JSON object.
-     */
     try {
       const rawResult = await fetch(endpoints[this.tribunal], {
         method: "POST",
