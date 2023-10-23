@@ -111,6 +111,32 @@ export default class BuscaProcessos {
 
     return movimentos;
   }
+  public async getProceduralClassAndJudgingBody(classCodigo: Number, orgaoJulgadorCodigo: Number): Promise<any> {
+
+    try {
+      const rawResult = await fetch(endpoints[this.tribunal], {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: this.APIKey,
+        },
+        body: JSON.stringify({
+          query: {
+            bool: {
+              must: [
+                { match: { classe: { codigo: classCodigo } } },
+                { match: { orgaoJulgador: { codigo: orgaoJulgadorCodigo } } },
+              ]
+            },
+          },
+        }),
+      });
+      const result = await rawResult.json();
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export { siglasTribunais, tribunais };
