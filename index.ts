@@ -95,6 +95,22 @@ export default class BuscaProcessos {
       assuntos,
     );
   }
+  public async getMovimentos(processo: string): Promise<any> {
+    const result = await this.getFullObject(processo);
+    const resultProcesso = result.hits.hits[0]._source;
+
+    let movimentos: Array<Movimentos> = [];
+
+    resultProcesso.movimentos.forEach((movimento: typeof resultProcesso.movimentos) => {
+      movimentos.push({
+        nome: movimento.nome,
+        dataHora: movimento.dataHora,
+        complemento: movimento.complementosTabelados?.nome || null,
+      });
+    });
+
+    return movimentos;
+  }
 }
 
 export { siglasTribunais, tribunais };
