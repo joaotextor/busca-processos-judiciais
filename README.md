@@ -23,9 +23,10 @@ Possui como base de dados a [API Pública do CNJ](https://datajud-wiki.cnj.jus.b
 
 Pull Requests são extremamente bem-vindos, seja para corrigir bugs, implementar testes, melhorar o código ou criar novas funcionalidades.
 
-Por enquanto, essa biblioteca permite apenas a busca por número de processo (função que, presumo, será a mais utilizada pelos projetos feitos com essa API), mas as buscas podem utilizar inúmeros critérios, como exemplificado [aqui](https://datajud-wiki.cnj.jus.br/api-publica/exemplos/exemplo2).
+Por enquanto, essa biblioteca permite a busca por número do processo e também por código da classe processual em conjunto com o código do órgão julgador, com ou sem paginação.
+No entanto, a API permite utilizar inúmeros critérios, como exemplificado [aqui](https://datajud-wiki.cnj.jus.br/api-publica/exemplos/exemplo2).
 
-Sendo assim, fique à vontade para contribuir com o projeto.
+Sendo assim, fique à vontade para contribuir com o projeto adicionando novos tipos de busca.
 
 Para isso, dê um [fork](https://github.com/joaotextor/busca-processos-judiciais/fork) no repositório e depois clone para sua máquina:
 
@@ -85,6 +86,10 @@ O uso da API está sujeita aos **[Termos de Uso](https://formularios.cnj.jus.br/
 **`getStringified(processo: string)`**: Retorna todos os dados da requisição como uma String JSON.
 
 **`getCleanResult(processo: string)`**: Retorna a Classe **`Processo`** com os principais dados da requisição. Esta é a estrutura desta classe:
+
+**`getProceduralClassAndJudgingBody(classCodigo: number, orgaoJulgadorCodigo: number)`**: Retorna uma lista de processos com base no código da classe processual informada e no código do órgão julgador.
+
+**`getProceduralClassAndJudgingBodyWithPagination(classCodigo: number, orgaoJulgadorCodigo: number, sizePagination: number)`**: Mesmo que o anterior, mas com paginação.
 
 ````js
 class Processo {
