@@ -46,7 +46,7 @@ npm i --save busca-processos-judiciais
 ### 📂 Importação
 
 ```js
-import { BuscaProcesso } from "busca-processos-judiciais";
+import BuscaProcesso from "busca-processos-judiciais";
 ```
 
 ou
