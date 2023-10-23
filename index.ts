@@ -144,11 +144,11 @@ export default class BuscaProcessos {
     }
   }
   public async getProceduralClassAndJudgingBody(
-    classCodigo: Number,
-    orgaoJulgadorCodigo: Number,
+    classCodigo: number,
+    orgaoJulgadorCodigo: number,
   ): Promise<any> {
     /**
-     * Fetches procedural class and judging body information from an API based on the provided class code and judging body code.
+     * Fetches process information from an API based on the provided class code and judging body code.
      *
      * @param {Number} classCodigo - The code of the procedural class.
      * @param {Number} orgaoJulgadorCodigo - The code of the judging body.
@@ -179,13 +179,13 @@ export default class BuscaProcessos {
     }
   }
 
-  public async getProceduralClassAddJudgingBodyWithPagination(
-    classCodigo: Number,
-    orgaoJulgadorCodigo: Number,
-    sizePagination: Number,
+  public async getProceduralClassAndJudgingBodyWithPagination(
+    classCodigo: number,
+    orgaoJulgadorCodigo: number,
+    sizePagination: number,
   ): Promise<any> {
     /**
-     * Retrieves procedural classes and judging bodies with pagination from an API endpoint.
+     * Retrieves process list with pagination from an API endpoint, based on the procedural class code and the judging body code.
      *
      * @param {Number} classCodigo - The code of the procedural class.
      * @param {Number} orgaoJulgadorCodigo - The code of the judging body.
