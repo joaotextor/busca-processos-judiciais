@@ -12,7 +12,8 @@
     "dev": "tsc --watch",
     "build": "tsup index.ts --format cjs,esm --dts && npx fix-tsup-cjs",
     "lint": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "build-docs": "typedoc --plugin typedoc-plugin-rename-defaults index.ts"
   },
   "author": "João Textor",
   "license": "MIT",
@@ -35,6 +36,7 @@
     "ts-jest": "^29.1.1",
     "tsup": "^7.2.0",
     "typedoc": "^0.25.2",
+    "typedoc-plugin-rename-defaults": "^0.6.7",
     "typescript": "^5.2.2"
   }
 }
