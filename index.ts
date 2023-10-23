@@ -112,7 +112,6 @@ export default class BuscaProcessos {
     return movimentos;
   }
   public async getProceduralClassAndJudgingBody(classCodigo: Number, orgaoJulgadorCodigo: Number): Promise<any> {
-
     try {
       const rawResult = await fetch(endpoints[this.tribunal], {
         method: "POST",
@@ -137,6 +136,34 @@ export default class BuscaProcessos {
       console.log(error);
     }
   };
+
+  public async getProceduralClassAddJudgingBodyWithPagination(classCodigo: Number, orgaoJulgadorCodigo: Number, sizePagination: Number): Promise<any> {
+    try {
+      const rawResult = await fetch(endpoints[this.tribunal], {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: this.APIKey,
+        }, body: JSON.stringify({
+          size: sizePagination,
+          query: {
+            bool: {
+              must: [
+                { match: { classe: { codigo: classCodigo } } },
+                { match: { orgaoJulgador: { codigo: orgaoJulgadorCodigo } } },
+              ]
+            },
+          },
+          sort: [{ "@timestamp": { "order": "asc" } }]
+        }),
+      });
+      const result = await rawResult.json();
+      return result;
+    } catch (error) {
+
+    }
+
+  }
 }
 
 export { siglasTribunais, tribunais };
