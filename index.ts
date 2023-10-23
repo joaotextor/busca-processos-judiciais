@@ -14,11 +14,11 @@ export default class BuscaProcessos {
   public async getFullObject(processo: string): Promise<any> {
     /**
      * Fetches the full object of a process by making a POST request to an API endpoint.
-     * 
+     *
      * @param processo - The process number for which the full object is to be fetched.
      * @returns The full object of the process as a JSON object.
      * @throws If an error occurs during the fetch request.
-     * 
+     *
      * @example
      * const buscaProcessos = new BuscaProcessos(tribunal, apiKey);
      * const processo = "1234567890";
@@ -50,7 +50,7 @@ export default class BuscaProcessos {
   public async getStringified(processo: string): Promise<any> {
     /**
      * Retrieves a stringified JSON representation of a process by making a POST request to an API endpoint.
-     * 
+     *
      * @param processo - The process number for which to retrieve the stringified JSON representation.
      * @returns A Promise that resolves to a stringified JSON representation of the process.
      */
@@ -79,7 +79,7 @@ export default class BuscaProcessos {
   public async getCleanResult(processo: string): Promise<any> {
     /**
      * Retrieves clean and formatted data from a given process.
-     * 
+     *
      * @param processo - The process number for which clean data needs to be retrieved.
      * @returns An instance of the Processo class with relevant information extracted from the raw result.
      */
@@ -123,7 +123,7 @@ export default class BuscaProcessos {
   public async getMovimentos(processo: string): Promise<any> {
     /**
      * Retrieves the movements of a given process.
-     * 
+     *
      * @param processo - The process number for which to retrieve the movements.
      * @returns An array of movements, where each movement object has the properties `nome` (string), `dataHora` (Date), and `complemento` (string or null).
      */
@@ -143,10 +143,13 @@ export default class BuscaProcessos {
       console.log(error);
     }
   }
-  public async getProceduralClassAndJudgingBody(classCodigo: Number, orgaoJulgadorCodigo: Number): Promise<any> {
+  public async getProceduralClassAndJudgingBody(
+    classCodigo: Number,
+    orgaoJulgadorCodigo: Number,
+  ): Promise<any> {
     /**
      * Fetches procedural class and judging body information from an API based on the provided class code and judging body code.
-     * 
+     *
      * @param {Number} classCodigo - The code of the procedural class.
      * @param {Number} orgaoJulgadorCodigo - The code of the judging body.
      * @returns {Promise<any>} - The result of the API request, containing information about the procedural class and judging body.
@@ -162,9 +165,9 @@ export default class BuscaProcessos {
           query: {
             bool: {
               must: [
-                { match: { classe: { codigo: classCodigo } } },
-                { match: { orgaoJulgador: { codigo: orgaoJulgadorCodigo } } },
-              ]
+                { match: { "classe.codigo": classCodigo } },
+                { match: { "orgaoJulgador.codigo": orgaoJulgadorCodigo } },
+              ],
             },
           },
         }),
@@ -176,10 +179,14 @@ export default class BuscaProcessos {
     }
   }
 
-  public async getProceduralClassAddJudgingBodyWithPagination(classCodigo: Number, orgaoJulgadorCodigo: Number, sizePagination: Number): Promise<any> {
+  public async getProceduralClassAddJudgingBodyWithPagination(
+    classCodigo: Number,
+    orgaoJulgadorCodigo: Number,
+    sizePagination: Number,
+  ): Promise<any> {
     /**
      * Retrieves procedural classes and judging bodies with pagination from an API endpoint.
-     * 
+     *
      * @param {Number} classCodigo - The code of the procedural class.
      * @param {Number} orgaoJulgadorCodigo - The code of the judging body.
      * @param {Number} sizePagination - The number of results to be returned per page.
@@ -197,12 +204,12 @@ export default class BuscaProcessos {
           query: {
             bool: {
               must: [
-                { match: { classe: { codigo: classCodigo } } },
-                { match: { orgaoJulgador: { codigo: orgaoJulgadorCodigo } } },
-              ]
+                { match: { "classe.codigo": classCodigo } },
+                { match: { "orgaoJulgador.codigo": orgaoJulgadorCodigo } },
+              ],
             },
           },
-          sort: [{ "@timestamp": { "order": "asc" } }]
+          sort: [{ "@timestamp": { order: "asc" } }],
         }),
       });
       const result = await rawResult.json();
