@@ -57,6 +57,12 @@ ou
 const BuscaProcesso = require("busca-processos-judiciais");
 ```
 
+Para fazer a importação de fora de um ambiente node (browser) em um ES6 Module, utilize:
+
+```js
+import BuscaProcesso from "./node_modules/busca-processos-judiciais/dist/index.mjs".
+```
+
 ### 🚀️ Implementação
 
 ```js
