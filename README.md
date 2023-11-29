@@ -162,7 +162,7 @@ Isso reduz as chances de erro de digitação, visto que permite o uso do autocom
 
 ## 👀 Documentação
 
-A documentaçào completa pode ser encontrada [AQUI](https://busca-processos-judiciais.joaotextor.com).
+A documentação completa pode ser encontrada [AQUI](https://busca-processos-judiciais.joaotextor.com).
 
 ## 🪲 Bugs
 
