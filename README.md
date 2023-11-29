@@ -81,7 +81,7 @@ buscarProcesso()
 
 ### 🔑 Chave Pública da API
 
-A API do CNJ é pública e pode ser obtida [aqui](https://datajud-wiki.cnj.jus.br/api-publica/acesso).
+A API do CNJ é pública e a chave pode ser obtida [aqui](https://datajud-wiki.cnj.jus.br/api-publica/acesso).
 O uso da API está sujeita aos **[Termos de Uso](https://formularios.cnj.jus.br/wp-content/uploads/2023/05/Termos-de-uso-api-publica-V1.1.pdf)** definidos pelo CNJ.
 
 ### 🔧 Métodos
