@@ -200,6 +200,7 @@ export default class BuscaProcessos {
     classCodigo: number,
     orgaoJulgadorCodigo: number,
     sizePagination: number,
+    searchAfter?: number,
   ): Promise<any> {
     try {
       const rawResult = await fetch(endpoints[this.tribunal], {
@@ -219,10 +220,12 @@ export default class BuscaProcessos {
             },
           },
           sort: [{ "@timestamp": { order: "asc" } }],
+          search_after: searchAfter,
         }),
       });
       const result = await rawResult.json();
-      return result;
+      if (result.hits.hits.length === 0) return { hits: "empty" };
+      return result.hits.hits;
     } catch (error) {
       console.log(error);
     }
