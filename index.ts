@@ -194,6 +194,7 @@ export default class BuscaProcessos {
    * @param classCodigo - Código da Classe Processual
    * @param orgaoJulgadorCodigo - Código do órgão julgador
    * @param sizePagination - O número de resultados por página.
+   * @param searchAfter - Propriedade opcional. Deverá ser um array com o número do campo 'sort' existente no últimoprocesso do resultado anterior.
    * @returns - Uma `Promise` com a lista de processos judiciais de determinada classe e de determinado órgão julgador.
    */
   public async getProceduralClassAndJudgingBodyWithPagination(
