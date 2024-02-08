@@ -201,7 +201,7 @@ export default class BuscaProcessos {
     classCodigo: number,
     orgaoJulgadorCodigo: number,
     sizePagination: number,
-    searchAfter?: number,
+    searchAfter?: number[],
   ): Promise<any> {
     try {
       const rawResult = await fetch(endpoints[this.tribunal], {
