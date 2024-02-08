@@ -96,7 +96,7 @@ O uso da API está sujeita aos **[Termos de Uso](https://formularios.cnj.jus.br/
 
 **`getProceduralClassAndJudgingBody(classCodigo: number, orgaoJulgadorCodigo: number)`**: Retorna uma lista de processos com base no código da classe processual informada e no código do órgão julgador.
 
-**`getProceduralClassAndJudgingBodyWithPagination(classCodigo: number, orgaoJulgadorCodigo: number, sizePagination: number)`**: Mesmo que o anterior, mas com paginação.
+**`getProceduralClassAndJudgingBodyWithPagination(classCodigo: number, orgaoJulgadorCodigo: number, sizePagination: number, searchAfter?: number[])`**: Mesmo que o anterior, mas com paginação.
 
 ````js
 class Processo {
