@@ -86,7 +86,7 @@ export const endpoints = {
   TJSE: "https://api-publica.datajud.cnj.jus.br/api_publica_tjse/_search",
   TJSP: "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
   TJTO: "https://api-publica.datajud.cnj.jus.br/api_publica_tjto/_search",
-  TJMRS: "https://api-publica.datajud.cnj.jus.br/api_publica_tjmmg/_search",
-  TJMSP: "https://api-publica.datajud.cnj.jus.br/api_publica_tjmrs/_search",
-  TJMMG: "https://api-publica.datajud.cnj.jus.br/api_publica_tjmrs/_search",
+  TJMRS: "https://api-publica.datajud.cnj.jus.br/api_publica_tjmrs/_search",
+  TJMSP: "https://api-publica.datajud.cnj.jus.br/api_publica_tjmsp/_search",
+  TJMMG: "https://api-publica.datajud.cnj.jus.br/api_publica_tjmmg/_search",
 };
